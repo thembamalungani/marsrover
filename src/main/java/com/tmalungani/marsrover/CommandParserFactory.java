@@ -6,7 +6,6 @@ public class CommandParserFactory {
      * @return ICommandParser
      */
     public static ICommandParser parser() {
-
         return new CommandParser();
     }
 }
