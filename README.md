@@ -22,7 +22,7 @@ All inputs to the program are space separated. Example 12 4, these will be treat
 ```Final Mars Rover Position: 3 3 S```
 
 ## Design
-The entry level to the programs is via the class `com.tmalungani.marsrover.Main`. From the command reader factory is used to obtain an instance of `CommandReader`.
+The entry level to the programs is via the class `com.tmalungani.marsrover.Main`. From there the command reader factory is used to obtain an instance of `CommandReader`.
 The idea here is you can have different types of commands readers based on the source of you inputs.
 As an example, if in the future commands are sent to MarsRover via a text file, you could update the `com.tmalungani.marsrover.CommandReaderFactory`
 to return an instance of a reader which can read commands from a file.
@@ -33,7 +33,7 @@ checks are performed to ensure to valid rover is created with correct parameters
 created, commands can be passed to it and executed.
 
 A rover is place on a grid and at any specific time has a position (which is the coordinates in the grid and direction). The rover can be moved by executing commands
-which are passed to the grid which then determines the next position of the rover.
+which are passed to the grid which then determines the next position of the rover relative to the current position.
 
 ## Testing
 To ensure the correctness of the code, functional tests were added to make sure that at any point in time, the program can be validated that it is still functining as intended and meets the functional requirements.
