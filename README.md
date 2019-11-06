@@ -35,8 +35,12 @@ created, commands can be passed to it and executed.
 A rover is place on a grid and at any specific time has a position (which is the coordinates in the grid and direction). The rover can be moved by executing commands
 which are passed to the grid which then determines the next position of the rover relative to the current position.
 
+If instructions are given to move the rover beyond the boundaries of the grid, the rover will be moved to the last "possible" position. Error handling has been built in to avoid
+having invalid input. Invalid input could be bad data or maybe rover starting position which is outside of the grid.
+The program has been design in a way to perpetually ask the user for input until is is valid before moving on to ask for the next input.
+
 ## Testing
-To ensure the correctness of the code, functional tests were added to make sure that at any point in time, the program can be validated that it is still functining as intended and meets the functional requirements.
+To ensure the correctness of the code, functional tests were added to make sure that at any point in time, the program can be validated that it is still functioning as intended and meets the functional requirements.
 The tests validate that the rover can: move up, down, left, and right, and can rotate left and right.
 The test are written using JUnit 4. Withing the root of the project, you can just run the command below:
 

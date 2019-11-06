@@ -100,7 +100,7 @@ public class Grid {
         /**
          * Gets the max width
          *
-         * @return
+         * @return int
          */
         public int getMaxWidth() {
             return maxWidth;
@@ -108,7 +108,7 @@ public class Grid {
 
         /**
          * Gets the max height
-         * @return
+         * @return int
          */
         public int getMaxHeight() {
             return maxHeight;
