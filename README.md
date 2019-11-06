@@ -14,7 +14,7 @@ All inputs to the program are space separated. Example 12 4, these will be treat
 ### Example run 
 
 ```$ mvn compile```<br>
-```$ mvn exec:java -Dexec.mainClass=com.tmalungani.marsrover.Main```<br>
+```$ mvn exec:java -Dexec.mainClass=com.tmalungani.marsrover.Main```<br><br>
 ```Enter grid size. eg 10 8:```10 8<br>
 ```Enter starting position. Allowed directions [N W S E] Eg. 1 2 E:``` 1 2 E<br/>
 ```Enter commands to be sent to rover. Allowed commands [LRM]:``` MMLMRMMRRMML<br/>
