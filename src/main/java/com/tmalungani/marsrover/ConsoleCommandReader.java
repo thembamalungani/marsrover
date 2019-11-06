@@ -30,14 +30,12 @@ class ConsoleCommandReader {
     private void readGridSize() {
 
         try {
-
-            System.out.print("Enter grid size. eg 10 8: ");
-            size = commandParser.size(input.nextLine());
+            prompt("Enter grid size. eg 10 8: ");
+            size = commandParser.size(readInput());
 
         } catch (IllegalGridSizeException e) {
 
-            System.out.println("ERROR: " + e.getMessage());
-
+            error(e.getMessage());
             readGridSize();
         }
     }
@@ -49,14 +47,12 @@ class ConsoleCommandReader {
     private void readStartingPosition() {
 
         try {
-
-            System.out.print("Enter starting position. Allowed directions: (N W S E) Eg. 1 2 E: ");
-            position = commandParser.position(input.nextLine());
+            prompt("Enter starting position. Allowed directions [N W S E] Eg. 1 2 E: ");
+            position = commandParser.position(readInput());
 
         } catch (IllegalRoverPositionException | IllegalRoverDirectionException e) {
 
-            System.out.println("ERROR: " + e.getMessage());
-
+            error(e.getMessage());
             readStartingPosition();
         }
     }
@@ -68,13 +64,40 @@ class ConsoleCommandReader {
     private void readRoverCommands() {
 
         try {
-
-            System.out.print("Enter commands to be sent to rover: ");
-            commands = commandParser.commands(input.nextLine());
+            prompt("Enter commands to be sent to rover. Allowed commands [LRM]: ");
+            commands = commandParser.commands(readInput());
 
         } catch (IllegalRoverCommandException e) {
 
-            System.out.println("ERROR: " + e.getMessage());
+            error(e.getMessage());
+            readRoverCommands();
         }
+    }
+
+    /**
+     * Display prompt on screen
+     *
+     * @param String message
+     */
+    private void prompt(String message) {
+        System.out.print(message);
+    }
+
+    /**
+     * Print the error
+     *
+     * @param String error
+     */
+    private void error(String error) {
+        System.err.println("ERROR: " + error);
+    }
+
+    /**
+     * Reads the input from console
+     *
+     * @return String
+     */
+    private String readInput() {
+        return input.nextLine();
     }
 }
