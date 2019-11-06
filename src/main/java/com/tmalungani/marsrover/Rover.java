@@ -17,7 +17,6 @@ public class Rover {
      * @param Position position
      */
     public Rover(Grid grid, Position position) {
-
         this.grid       = grid;
         this.position   = position;
     }

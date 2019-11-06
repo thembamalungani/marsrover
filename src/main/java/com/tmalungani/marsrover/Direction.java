@@ -24,7 +24,6 @@ public enum Direction {
      * @param String left  The left of the current direction
      */
     Direction(String value, String right, String left) {
-
         this.value  = value;
         this.right  = right;
         this.left   = left;
@@ -36,7 +35,6 @@ public enum Direction {
      * @return
      */
     public String value() {
-
         return this.value;
     }
 
@@ -46,7 +44,6 @@ public enum Direction {
      * @return Direction
      */
     public Direction right() {
-
         return directionTo(this.right);
     }
 
@@ -56,7 +53,6 @@ public enum Direction {
      * @return Direction
      */
     public Direction left() {
-
         return directionTo(this.left);
     }
 

@@ -15,7 +15,6 @@ public class Grid {
      * @param Size size
      */
     public Grid(Size size) {
-
         this.size = size;
     }
 
@@ -31,7 +30,6 @@ public class Grid {
         int x = position.getCoordinate().getX();
 
         switch (position.getDirection()){
-
             case NORTH:     y = moveNorth(y);   break;
             case EAST:      x = moveEast(x);    break;
             case WEST:      x = moveWest(x);    break;
@@ -47,7 +45,9 @@ public class Grid {
      * @param int y
      * @return int
      */
-    private int moveSouth(int y) { return (y > 0) ? y - 1 : y; }
+    private int moveSouth(int y) {
+        return (y > 0) ? y - 1 : y;
+    }
 
     /**
      * Moves the rover in west direction
@@ -55,7 +55,9 @@ public class Grid {
      * @param int x
      * @return int
      */
-    private int moveWest(int x) { return (x > 0) ? x - 1 : x; }
+    private int moveWest(int x) {
+        return (x > 0) ? x - 1 : x;
+    }
 
     /**
      * Moves the rover in east direction
@@ -63,7 +65,9 @@ public class Grid {
      * @param int x
      * @return int
      */
-    private int moveEast(int x) { return (x < size.maxWidth - 1) ? x + 1: x; }
+    private int moveEast(int x) {
+        return (x < size.maxWidth - 1) ? x + 1: x;
+    }
 
     /**
      * Moves the rover in north direction
@@ -71,7 +75,9 @@ public class Grid {
      * @param int y
      * @return int
      */
-    private int moveNorth(int y) { return (y < size.maxHeight - 1) ? y + 1: y; }
+    private int moveNorth(int y) {
+        return (y < size.maxHeight - 1) ? y + 1: y;
+    }
 
     /**
      * Encapsulates the size of a grid
@@ -87,7 +93,6 @@ public class Grid {
          * @param int  maxHeight
          */
         public Size(int maxWidth, int maxHeight) {
-
             this.maxWidth   = maxWidth;
             this.maxHeight  = maxHeight;
         }
@@ -116,7 +121,6 @@ public class Grid {
          * @return Boolean
          */
         Boolean contains(Coordinate coordinate) {
-
             return maxHeight >= coordinate.getY() && maxWidth >= coordinate.getX();
         }
     }

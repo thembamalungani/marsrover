@@ -12,7 +12,6 @@ public class Position {
      * @param Direction direction
      */
     public Position(Coordinate coordinate, Direction direction) {
-
         this.coordinate = coordinate;
         this.direction = direction;
     }
@@ -20,7 +19,7 @@ public class Position {
     /**
      * Get the coordinates
      *
-     * @return
+     * @return Coordinate
      */
     public Coordinate getCoordinate() {
         return coordinate;
@@ -29,7 +28,7 @@ public class Position {
     /**
      * Get the direction
      *
-     * @return
+     * @return Direction
      */
     public Direction getDirection() {
         return direction;
