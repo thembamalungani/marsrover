@@ -42,7 +42,6 @@ public class Rover {
      * @return String
      */
     private String getPosition() {
-
         return String.format("%s %s %s",
             position.getCoordinate().getX(),
             position.getCoordinate().getY(),
