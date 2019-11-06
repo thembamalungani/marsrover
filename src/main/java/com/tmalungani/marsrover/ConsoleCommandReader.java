@@ -9,7 +9,7 @@ class ConsoleCommandReader {
     Position position;
 
     private static Scanner input = new Scanner(System.in);
-    private static ICommandParser commandParser = new CommandParser();
+    private static ICommandParser commandParser = CommandParserFactory.parser();
 
     /**
      * Read the commands to be used to initialise the Mars rover and to be executed
