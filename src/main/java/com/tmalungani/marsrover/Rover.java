@@ -30,7 +30,6 @@ public class Rover {
     public String execute(String commands) {
 
         for (char command: commands.toCharArray()) {
-
             executeCommand(command);
         }
 
@@ -60,7 +59,6 @@ public class Rover {
     private void executeCommand(char command) {
 
         switch (command){
-
             case 'R': position  = new Position(position.getCoordinate(), position.getDirection().right()); break;
             case 'L': position  = new Position(position.getCoordinate(), position.getDirection().left()); break;
             case 'M': position  = grid.move(position);
