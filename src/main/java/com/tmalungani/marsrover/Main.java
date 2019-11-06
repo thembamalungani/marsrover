@@ -6,9 +6,9 @@ public class Main {
 
         try {
 
-            ConsoleCommandReader reader = (new ConsoleCommandReader()).read();
-            Rover rover                 = RoverFactory.buildFor(reader.size, reader.position);
-            String finalPosition        = rover.execute(reader.commands);
+            CommandReader reader    = CommandReaderFactory.reader();
+            Rover rover             = RoverFactory.roverFor(reader.gridSize, reader.roverPosition);
+            String finalPosition    = rover.execute(reader.roverCommands);
 
             System.out.println("Final Mars Rover Position: " + finalPosition);
 

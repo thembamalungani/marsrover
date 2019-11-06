@@ -2,11 +2,7 @@ package com.tmalungani.marsrover;
 
 import java.util.Scanner;
 
-class ConsoleCommandReader {
-
-    Grid.Size size;
-    String commands;
-    Position position;
+class ConsoleCommandReader extends CommandReader implements ICommandReader {
 
     private static Scanner input = new Scanner(System.in);
     private static ICommandParser commandParser = CommandParserFactory.parser();
@@ -14,7 +10,7 @@ class ConsoleCommandReader {
     /**
      * Read the commands to be used to initialise the Mars rover and to be executed
      */
-    ConsoleCommandReader read() {
+    public CommandReader read() {
 
         readGridSize();
         readStartingPosition();
@@ -31,7 +27,7 @@ class ConsoleCommandReader {
 
         try {
             prompt("Enter grid size. eg 10 8: ");
-            size = commandParser.size(readInput());
+            gridSize = commandParser.size(readInput());
 
         } catch (IllegalGridSizeException e) {
 
@@ -48,7 +44,7 @@ class ConsoleCommandReader {
 
         try {
             prompt("Enter starting position. Allowed directions [N W S E] Eg. 1 2 E: ");
-            position = commandParser.position(readInput());
+            roverPosition = commandParser.position(readInput());
 
         } catch (IllegalRoverPositionException | IllegalRoverDirectionException e) {
 
@@ -65,7 +61,7 @@ class ConsoleCommandReader {
 
         try {
             prompt("Enter commands to be sent to rover. Allowed commands [LRM]: ");
-            commands = commandParser.commands(readInput());
+            roverCommands = commandParser.commands(readInput());
 
         } catch (IllegalRoverCommandException e) {
 
