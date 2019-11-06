@@ -6,15 +6,15 @@ public class Main {
 
         try {
 
-            CommandReader reader    = CommandReaderFactory.reader();
+            CommandReader reader    = CommandReaderFactory.reader().read();
             Rover rover             = RoverFactory.roverFor(reader.gridSize, reader.roverPosition);
             String finalPosition    = rover.execute(reader.roverCommands);
 
-            System.out.println("Final Mars Rover Position: " + finalPosition);
+            ConsoleHelper.feedback("Final Mars Rover Position: " + finalPosition);
 
-        } catch (Exception  e) {
+        } catch (IllegalArgumentException  e) {
 
-            System.out.println("ERROR: " + e.getMessage());
+            ConsoleHelper.error("ERROR: " + e.getMessage());
         }
     }
 }

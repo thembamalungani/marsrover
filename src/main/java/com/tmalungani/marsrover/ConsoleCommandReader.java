@@ -1,10 +1,7 @@
 package com.tmalungani.marsrover;
 
-import java.util.Scanner;
+class ConsoleCommandReader extends CommandReader {
 
-class ConsoleCommandReader extends CommandReader implements ICommandReader {
-
-    private static Scanner input = new Scanner(System.in);
     private static ICommandParser commandParser = CommandParserFactory.parser();
 
     /**
@@ -26,12 +23,12 @@ class ConsoleCommandReader extends CommandReader implements ICommandReader {
     private void readGridSize() {
 
         try {
-            prompt("Enter grid size. eg 10 8: ");
-            gridSize = commandParser.size(readInput());
+            ConsoleHelper.prompt("Enter grid size. eg 10 8: ");
+            gridSize = commandParser.size(ConsoleHelper.input());
 
         } catch (IllegalGridSizeException e) {
 
-            error(e.getMessage());
+            ConsoleHelper.error(e.getMessage());
             readGridSize();
         }
     }
@@ -43,12 +40,12 @@ class ConsoleCommandReader extends CommandReader implements ICommandReader {
     private void readStartingPosition() {
 
         try {
-            prompt("Enter starting position. Allowed directions [N W S E] Eg. 1 2 E: ");
-            roverPosition = commandParser.position(readInput());
+            ConsoleHelper.prompt("Enter starting position. Allowed directions [N W S E] Eg. 1 2 E: ");
+            roverPosition = commandParser.position(ConsoleHelper.input());
 
         } catch (IllegalRoverPositionException | IllegalRoverDirectionException e) {
 
-            error(e.getMessage());
+            ConsoleHelper.error(e.getMessage());
             readStartingPosition();
         }
     }
@@ -60,40 +57,13 @@ class ConsoleCommandReader extends CommandReader implements ICommandReader {
     private void readRoverCommands() {
 
         try {
-            prompt("Enter commands to be sent to rover. Allowed commands [LRM]: ");
-            roverCommands = commandParser.commands(readInput());
+            ConsoleHelper.prompt("Enter commands to be sent to rover. Allowed commands [LRM]: ");
+            roverCommands = commandParser.commands(ConsoleHelper.input());
 
         } catch (IllegalRoverCommandException e) {
 
-            error(e.getMessage());
+            ConsoleHelper.error(e.getMessage());
             readRoverCommands();
         }
-    }
-
-    /**
-     * Display prompt on screen
-     *
-     * @param String message
-     */
-    private void prompt(String message) {
-        System.out.print(message);
-    }
-
-    /**
-     * Print the error
-     *
-     * @param String error
-     */
-    private void error(String error) {
-        System.err.println("ERROR: " + error);
-    }
-
-    /**
-     * Reads the input from console
-     *
-     * @return String
-     */
-    private String readInput() {
-        return input.nextLine();
     }
 }
