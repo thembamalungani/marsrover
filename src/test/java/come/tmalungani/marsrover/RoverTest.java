@@ -20,7 +20,6 @@ public class RoverTest {
 
     @Before
     public void init() {
-
         rover = new Rover(new Grid(new Grid.Size(10, 10)), new Position(new Coordinate(0,0), Direction.NORTH));
     }
 
@@ -32,7 +31,7 @@ public class RoverTest {
         "RRRR, 0 0 N"
     })
     public void shouldRotateRight(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 
@@ -44,7 +43,7 @@ public class RoverTest {
         "LLLL, 0 0 N"
     })
     public void shouldRotateLeft(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 
@@ -54,7 +53,7 @@ public class RoverTest {
         "MMM, 0 3 N"
     })
     public void shouldMoveNorth(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 
@@ -64,7 +63,7 @@ public class RoverTest {
         "RMMMM, 4 0 E"
     })
     public void shouldMoveEast(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 
@@ -74,17 +73,17 @@ public class RoverTest {
         "LMMMM, 0 0 W"
     })
     public void shouldMoveWest(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 
     @Test
     @Parameters({
-            "MMMLLMM, 0 1 S",
-            "RMMMR, 3 0 S"
+        "MMMLLMM, 0 1 S",
+        "RMMMR, 3 0 S"
     })
     public void shouldMoveSouth(String commands, String position) {
-
+        //Assumes the rover is starting a position 0 0 N
         assertThat(rover.execute(commands), is(position));
     }
 }
