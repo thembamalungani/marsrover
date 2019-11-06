@@ -5,8 +5,8 @@ import java.util.Scanner;
 class ConsoleCommandReader {
 
     Grid.Size size;
-    Position position;
     String commands;
+    Position position;
 
     private static Scanner input = new Scanner(System.in);
     private static ICommandParser commandParser = new CommandParser();
@@ -23,6 +23,10 @@ class ConsoleCommandReader {
         return this;
     }
 
+    /**
+     * Reads the grid size from command line as string and parses it to Grid.size.
+     * This method will be called recursively until the size is valid.
+     */
     private void readGridSize() {
 
         try {
@@ -38,6 +42,10 @@ class ConsoleCommandReader {
         }
     }
 
+    /**
+     * Reads the rover starting position from command line as string and parses it to Position.
+     * This method will be called recursively until the position is valid.
+     */
     private void readStartingPosition() {
 
         try {
@@ -53,6 +61,10 @@ class ConsoleCommandReader {
         }
     }
 
+    /**
+     * Reads the rover commands from command line as string and parses it to String.
+     * This method will be called recursively until the commands are valid.
+     */
     private void readRoverCommands() {
 
         try {
