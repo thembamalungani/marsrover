@@ -21,3 +21,10 @@ created, commands can be passed to it and executed.
 
 A rover is place on a grid and at any specific time has a position (which is the coordinates in the grid and direction). The rover can be moved by executing commands
 which are passed to the grid which then determines the next position of the rover.
+
+## Testing
+To ensure the correctness of the code, functional tests were added to make sure that at any point in time, the program can be validated that it is still functining as intended and meets the functional requirements.
+
+The test are written using JUnit 4. Withing the root of the project, you can just run the command below:
+
+```$ mvn test```<br>
