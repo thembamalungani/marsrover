@@ -61,7 +61,7 @@ public class Rover {
         switch (command){
             case 'R': position  = new Position(position.getCoordinate(), position.getDirection().right()); break;
             case 'L': position  = new Position(position.getCoordinate(), position.getDirection().left()); break;
-            case 'M': position  = grid.move(position);
+            case 'M': position  = grid.move(position); break;
         }
     }
 }
