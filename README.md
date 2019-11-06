@@ -8,6 +8,18 @@ Once maven is installed, you can run the commands below in the root directory of
 ```$ mvn compile```<br>
 ```$ mvn exec:java -Dexec.mainClass=com.tmalungani.marsrover.Main```
 
+### Inputs
+All inputs to the program are space separated. Example 12 4, these will be treated as 2 parameters.
+
+### Example run 
+
+```$ mvn compile```<br>
+```$ mvn exec:java -Dexec.mainClass=com.tmalungani.marsrover.Main```<br>
+```Enter grid size. eg 10 8:```<span class="text-red">10 8</span><br>
+```Enter starting position. Allowed directions [N W S E] Eg. 1 2 E:``` 1 2 E<br/>
+```Enter commands to be sent to rover. Allowed commands [LRM]:``` MMLMRMMRRMML<br/>
+```Final Mars Rover Position: 3 3 S```
+
 ## Design
 The entry level to the programs is via the class `com.tmalungani.marsrover.Main`. From the command reader factory is used to obtain an instance of `CommandReader`.
 The idea here is you can have different types of commands readers based on the source of you inputs.
@@ -24,7 +36,7 @@ which are passed to the grid which then determines the next position of the rove
 
 ## Testing
 To ensure the correctness of the code, functional tests were added to make sure that at any point in time, the program can be validated that it is still functining as intended and meets the functional requirements.
-
+The tests validate that the rover can: move up, down, left, and right, and can rotate left and right.
 The test are written using JUnit 4. Withing the root of the project, you can just run the command below:
 
 ```$ mvn test```<br>
